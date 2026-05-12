@@ -2,7 +2,7 @@
 
 Welcome to the High Performance Computing (HPC) and Deep Learning (DL) laboratory coursework repository for the Savitribai Phule Pune University (SPPU) Final Year B.E. curriculum.
 
-This repository contains clean, standardized, and highly optimized implementations of parallel algorithms using **OpenMP** and **CUDA C++**, alongside state-of-the-art **Deep Learning** models developed in **Jupyter Notebooks** using **TensorFlow/Keras**.
+This repository contains clean, standardized, and highly optimized implementations of parallel algorithms using **OpenMP** and **CUDA C++**, alongside  **Deep Learning** models developed in **Jupyter Notebooks** using **TensorFlow/Keras**.
 
 ---
 
