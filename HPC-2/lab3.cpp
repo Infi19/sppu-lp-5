@@ -63,8 +63,26 @@ void avgOperation(int nums[], int length)
 // Main Function
 int main()
 {
+    /*
+    // Current hardcoded inputs:
     int nums[] = {4, 6, 3, 2, 6, 7, 9, 2, 1, 6, 5};
     int length = sizeof(nums) / sizeof(int);
+    */
+
+    /*
+    Ideal Input:
+    11
+    4 6 3 2 6 7 9 2 1 6 5
+    */
+    int length;
+    cout << "Enter number of elements: ";
+    cin >> length;
+    int *nums = new int[length];
+    cout << "Enter elements: ";
+    for (int i = 0; i < length; i++)
+    {
+        cin >> nums[i];
+    }
 
     auto start = high_resolution_clock::now();
 
@@ -78,5 +96,6 @@ int main()
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "\nExecution time: " << duration.count() << " microseconds" << endl;
 
+    delete[] nums;
     return 0;
 }

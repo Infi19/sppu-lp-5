@@ -86,8 +86,26 @@ void bubbleSort(int nums[], int length)
 int main()
 {
     // Bubble Sort Example
+    /*
+    // Current hardcoded inputs:
     int nums1[] = {4, 6, 2, 0, 7, 6, 1, 9, -3, -5};
     int length1 = sizeof(nums1) / sizeof(int);
+    */
+
+    /*
+    Ideal Input for Bubble Sort:
+    10
+    4 6 2 0 7 6 1 9 -3 -5
+    */
+    int length1;
+    cout << "Enter number of elements for Bubble Sort: ";
+    cin >> length1;
+    int *nums1 = new int[length1];
+    cout << "Enter elements for Bubble Sort: ";
+    for (int i = 0; i < length1; i++)
+    {
+        cin >> nums1[i];
+    }
 
     cout << "Bubble Sort:" << endl;
     displayArray("Before", nums1, length1);
@@ -101,8 +119,26 @@ int main()
     cout << "\nExecution time for Bubble Sort: " << duration_bubble.count() << " microseconds" << endl;
 
     // Merge Sort Example
+    /*
+    // Current hardcoded inputs:
     int nums2[] = {3, 5, 1, -1, 6, 5, 0, 8, -2, -4};
     int length2 = sizeof(nums2) / sizeof(int);
+    */
+
+    /*
+    Ideal Input for Merge Sort:
+    10
+    3 5 1 -1 6 5 0 8 -2 -4
+    */
+    int length2;
+    cout << "\nEnter number of elements for Merge Sort: ";
+    cin >> length2;
+    int *nums2 = new int[length2];
+    cout << "Enter elements for Merge Sort: ";
+    for (int i = 0; i < length2; i++)
+    {
+        cin >> nums2[i];
+    }
 
     cout << "\nMerge Sort:" << endl;
     displayArray("Before", nums2, length2);
@@ -115,5 +151,7 @@ int main()
     auto duration_merge = duration_cast<microseconds>(end_merge - start_merge);
     cout << "\nExecution time for Merge Sort: " << duration_merge.count() << " microseconds" << endl;
 
+    delete[] nums1;
+    delete[] nums2;
     return 0;
 }

@@ -87,8 +87,27 @@ void dfs(Node *root)
 
 int main()
 {
+    /*
+    // Current hardcoded inputs:
     int values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     int length = sizeof(values) / sizeof(int); // Calculate the length of array.
+    */
+
+    /*
+    Ideal Input:
+    15
+    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+    */
+    int length;
+    cout << "Enter number of nodes: ";
+    cin >> length;
+    int *values = new int[length];
+    cout << "Enter node values (use -1 for NULL nodes): ";
+    for (int i = 0; i < length; i++)
+    {
+        cin >> values[i];
+    }
+
     Node *root = generateTree(values, length); // Generate the binary tree.
 
     // Measure execution time for BFS
@@ -107,5 +126,6 @@ int main()
     auto duration_dfs = duration_cast<microseconds>(stop_dfs - start_dfs);
     cout << "\nExecution time for DFS: " << duration_dfs.count() << " microseconds" << endl;
 
+    delete[] values;
     return 0;
 }

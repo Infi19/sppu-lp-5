@@ -115,11 +115,29 @@ void avgOperation(int nums[], int length)
 
 int main() {
 
+    /*
+    // Current hardcoded inputs:
     int length = 1000000;
     int nums[length];
     for (int i = 0; i < length; i++)
     {
         nums[i] = i;
+    }
+    */
+
+    /*
+    Ideal Input:
+    10
+    10 20 5 15 30 25 40 35 50 45
+    */
+    int length;
+    cout << "Enter number of elements: ";
+    cin >> length;
+    int *nums = new int[length];
+    cout << "Enter elements: ";
+    for (int i = 0; i < length; i++)
+    {
+        cin >> nums[i];
     }
 
 
@@ -151,4 +169,7 @@ int main() {
     auto stop_parallel = high_resolution_clock::now();
     auto duration_parallel = duration_cast<microseconds>(stop_parallel - start_parallel).count();
     cout << "Execution Time : "<<duration_parallel<< " microseconds" << endl;
+
+    delete[] nums;
+    return 0;
 }

@@ -13,11 +13,37 @@ __global__ void matMul(float *A, float *B, float *C, int N) {
 }
 
 int main() {
+    /*
+    // Current hardcoded inputs:
     int N = 2;  // 2x2 matrix for simplicity
     size_t size = N * N * sizeof(float);
     float A[] = {1, 2, 3, 4};
     float B[] = {5, 6, 7, 8};
     float C[4];
+    */
+
+    /*
+    Ideal Input:
+    2
+    1 2 3 4
+    5 6 7 8
+    */
+    int N;
+    printf("Enter matrix dimension N (for NxN matrix): ");
+    scanf("%d", &N);
+    size_t size = N * N * sizeof(float);
+
+    float *A = (float*)malloc(size);
+    float *B = (float*)malloc(size);
+    float *C = (float*)malloc(size);
+
+    printf("Enter elements of NxN matrix A: ");
+    for (int i = 0; i < N * N; i++)
+        scanf("%f", &A[i]);
+
+    printf("Enter elements of NxN matrix B: ");
+    for (int i = 0; i < N * N; i++)
+        scanf("%f", &B[i]);
 
     float *d_A, *d_B, *d_C;
     cudaMalloc(&d_A, size);
@@ -42,5 +68,8 @@ int main() {
     cudaFree(d_A);
     cudaFree(d_B);
     cudaFree(d_C);
+    free(A);
+    free(B);
+    free(C);
     return 0;
 }
